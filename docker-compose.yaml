@@ -1,17 +1,16 @@
-version: "3"
-
 services:
-  
-  openproject:
-    image: openproject/community:11
-    container_name: openproject
-    restart: unless-stopped
-    ports:
-      - "8200:80"
-    environment:
-      - PUID=998
-      - PGID=100
-      - SECRET_KEY_BASE=koZirTof1faEzGv7vGyKugOq6RnpislI
-    volumes:
-      - ./Op/pgdata:/var/openproject/pgdata
-      - ./Op/assets:/var/openproject/assets
+
+    openproject:
+        image: openproject/openproject:14
+        container_name: openproject        
+        ports:
+            - "8200:80"
+        restart: unless-stopped    
+        environment:
+            - OPENPROJECT_SECRET_KEY_BASE=secret
+            - OPENPROJECT_HOST__NAME=localhost:8200    # tudominio.com
+            - OPENPROJECT_HTTPS=false
+            - OPENPROJECT_DEFAULT__LANGUAGE=es
+        volumes:
+            - ./pgdata:/var/openproject/pgdata
+            - ./assets:/var/openproject/assets 
