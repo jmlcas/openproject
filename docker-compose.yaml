@@ -1,7 +1,7 @@
 services:
 
     openproject:
-        image: openproject/openproject:14
+        image: openproject/openproject:17
         container_name: openproject        
         ports:
             - "8200:80"
