@@ -2,15 +2,15 @@ services:
 
     openproject:
         image: openproject/openproject:17
-        container_name: openproject        
+        container_name: openproject     
         ports:
             - "8200:80"
-        restart: unless-stopped    
+        restart: unless-stopped
         environment:
-            - OPENPROJECT_SECRET_KEY_BASE=secret
+            - SECRET_KEY_BASE=dCYlN0UjXA0sO4lQaz0JxMd11U1c0lausHwKrW1Jat8=
             - OPENPROJECT_HOST__NAME=localhost:8200    # tudominio.com
             - OPENPROJECT_HTTPS=false
             - OPENPROJECT_DEFAULT__LANGUAGE=es
         volumes:
             - ./pgdata:/var/openproject/pgdata
-            - ./assets:/var/openproject/assets 
+            - ./assets:/var/openproject/assets
